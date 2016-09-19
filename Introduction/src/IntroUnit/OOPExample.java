@@ -15,10 +15,13 @@ public class OOPExample {
 	 */
 	public static void main(String[] args) {
 		// construct a student
-		Student jillian = new Student("Jillian");
+		Student jillian = new Senior("Jillian", "Programmer");
 		Student jordan = new Student("Jordan");
 		Student jason = new Student("Jason");
 		jillian.talk();
+		//jillian.name = "BoogerNose";
+		//jillian.talk();
+		
 		jordan.talk();
 		jason.talk();
 
