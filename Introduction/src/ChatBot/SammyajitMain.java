@@ -1,19 +1,21 @@
+package ChatBot;
+
 import java.util.Scanner;
 
-public class StringPractice {
+public class SammyajitMain {
 	
 	static Scanner input;
 	static String user;
 	static int lineCount;
 	static boolean inLoop;
 	static String response;
-	//static Topic school;
+	static Topic school;
 	
 	
 	public static void main(String[] args) {
 		createTopics();
 		lineCount = 0;
-		demonstrateStringMethod();
+		//demonstrateStringMethod();
 		promptName();
 		talkForever();
 	}
@@ -45,8 +47,17 @@ public class StringPractice {
 				print("I am so happy to here that.");
 			}
 			else{
-				print("I'm sorry I do not understand.");
+				if(response.indexOf("school")>= 0){
+					inLoop = false;//exit this loop
+					school.talk();
+					
+				}else{
+					print("I'm sorry I do not understand.");
+				}
+						
 			}
+			
+			
 			
 		}
 		
@@ -82,24 +93,4 @@ public class StringPractice {
 	public static void createTopics() {
 		input = new Scanner(System.in);
 	}
-	
-	public static void demonstrateStringMethod(){
-		createTopics();
-		//	String text = new String ("Hello World");
-			String text1 = "Hello World";
-			String text2 = "Hello ";
-			String text3 = "World";
-			if (text1.equals( text2 + text3)){
-				System.out.println("These String are Equal.");
-			}
-			System.out.println(text1);
-			System.out.println(text2 + text3);
-			
-			String word1 = "Aardvark";
-			String word2 = "Zzzybanaa";
-			if (word1.compareTo(word2) < 0){
-				System.out.println("Word 1 come before.");
-			}
-	}
-
 }
