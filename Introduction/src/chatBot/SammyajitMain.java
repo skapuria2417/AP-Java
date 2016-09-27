@@ -9,6 +9,7 @@ public class SammyajitMain {
 	static boolean inLoop;
 	static String response;
 	static Topic school;
+	static Topic like;
 
 	public static void main(String[] args) {
 		createTopics();
@@ -18,9 +19,9 @@ public class SammyajitMain {
 
 	private static void promptName() {
 		// TODO Auto-generated method stub
-		print("Hello, "+user+ ". I am a board covered with semiconductors and other such electronic components.\n 101010110101? (What is your name?)");
+		print("Hello, "+ "I am a board covered with semiconductors and other such electronic components.\nWhat is your name?");
 		user = input.nextLine();
-		print("Awesome. I will call you " + user + " until you terminate me.");
+		print("Awesome. I will call you "+user+" until you terminate me.");
 	}
 
 	public static void talkForever(){
@@ -46,14 +47,14 @@ public class SammyajitMain {
 		//set to lowercase
 		phrase = phrase.toLowerCase();
 		key = key.toLowerCase();
-		
-		print("The phrase is " + phrase);
-		print("The key is " + key);
-		
-		//find postion of key
+
+		//print("The phrase is " + phrase);
+		//print("The key is " + key);
+
+		//find position of key
 		int psn = phrase.indexOf(key);
-		
-		print("The position found is " +psn);
+
+		//print("The position found is " +psn);
 		//while looking for the word until you find the right context
 		while (psn >= 0){
 			String before = " ";
@@ -61,26 +62,54 @@ public class SammyajitMain {
 			// if the phrase does not end with this word
 			if (psn + key.length() < phrase.length()){
 				after = phrase.substring((psn + key.length()) , (psn+key.length()+1)).toLowerCase();
-				print("The character after " + key + "is" + after);
+			//	print("The character after " + key + "is" + after);
 			}
-			
+
 			if (psn > 0){
 				before = phrase.substring(psn-1,psn).toLowerCase();
-				print("The character before " + key + "is" + before);
+			//	print("The character before " + key + "is" + before);
 			}
-			
+
 			if (before.compareTo("a") < 0 && after.compareTo("a") < 0 ){
-				print(key + "was found at " +psn);
-				return psn;
+				//print(key + "was found at " +psn);
+
+				if (noNegations(phrase,psn)){
+					return psn;
+				}
 			}
 			// in case the keyword was not found yet, check the rest of the string.
-			
+
 			psn = phrase.indexOf(key,psn+1);
-			print(key + "was not found." + "Checking" +psn);
+			//print(key + "was not found." + "Checking" +psn);
 		}
 		return -1;
 	}
 
+	/**helper method - a method that contributes functionality to another method
+	* very common when you need to do the same thing repeatedly.
+	* They can help make methods more readable
+	* This method if private it is only used by the method it is helping
+	*/
+	
+	private static boolean noNegations(String phrase, int index){
+		//check for "NO" (3 characters);
+		//check to see if there is space for the word
+		// "NO" to be in front of the index
+		if ((index - 3) >= 0 && phrase.substring(index-3,index).equals("no")){
+			return false;
+		}
+		if ((index - 4) >= 0 && phrase.substring(index-4,index).equals("not")){
+			return false;
+		}
+		if ((index - 6) >= 0 && phrase.substring(index-6,index).equals("never")){
+			return false;
+		}
+		if ((index - 4) >= 0 && phrase.substring(index-4,index).equals("n't")){
+			return false;
+		}
+		return true;
+	}
+	
 	private static void promptInput(){
 		print(user + ", try inputting a String!");
 		String userInput = input.nextLine();
@@ -90,6 +119,7 @@ public class SammyajitMain {
 	public static void createTopics() {
 		input = new Scanner(System.in);
 		school = new School();
+		
 	}
 
 	public static String getInput(){
