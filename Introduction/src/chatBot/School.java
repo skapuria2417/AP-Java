@@ -1,4 +1,4 @@
-package ChatBot;
+package chatBot;
 
 public class School implements Topic {
 	private boolean inSchoolLoop;
