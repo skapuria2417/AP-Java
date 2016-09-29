@@ -1,22 +1,31 @@
 package chatBot;
 
 public class School implements Topic {
+
 	private boolean inSchoolLoop;
-	private String schoolResponse;
-	public void talk(){
-		inSchoolLoop=true;
-		while (inSchoolLoop){
-			//inSchoolLoop = true;
-			SammyajitMain.print("tell me about school.");
-			schoolResponse = SammyajitMain.getInput();
-			//SammyajitMain.print("Thats my favorite "+ "part about school too.");
-			if (schoolResponse.indexOf("stop")>=0){
+	private String schoolsResponse;
+
+	public void talk() {
+		inSchoolLoop = true;
+		while (inSchoolLoop) {
+			SammyajitMain.print("Tell me about school.");
+			schoolsResponse = SammyajitMain.getInput();
+			if (schoolsResponse.indexOf("stop") >= 0) {
 				inSchoolLoop = false;
 				SammyajitMain.talkForever();
-			}else{
-				SammyajitMain.print("Thats my favorite part about school too.");
 			}
+			SammyajitMain.print("That's my favorite part about school");
 		}
+	}
+
+	public boolean isTriggered(String userInput) {
+		if (SammyajitMain.findKeyword(userInput, "school", 0) >= 0) {
+			return true;
+		}
+		if (SammyajitMain.findKeyword(userInput, "class", 0) >= 0) {
+			return true;
+		}
+		return false;
 	}
 
 }

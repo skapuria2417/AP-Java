@@ -10,6 +10,7 @@ public class SammyajitMain {
 	static String response;
 	static Topic school;
 	static Topic like;
+	static Topic hello;
 
 	public static void main(String[] args) {
 		createTopics();
@@ -34,9 +35,18 @@ public class SammyajitMain {
 			}else if(response.indexOf("school") >= 0){
 				inLoop = false;//exit this loop
 				school.talk();
-			}else{
+			}else if(hello.isTriggered(response)){
+				inLoop = false;//exit this loop
+				hello.talk();
+			}
+			else if(response.indexOf("like") >= 0){
+				inLoop = false;//exit this loop
+				like.talk();
+			}
+			else{
 				print("I'm sorry. I don't understand you.");
 			}
+			
 		}
 	}
 
@@ -119,6 +129,8 @@ public class SammyajitMain {
 	public static void createTopics() {
 		input = new Scanner(System.in);
 		school = new School();
+		like = new SammyajitLike();
+		hello = new SammyajitHello();
 		
 	}
 
