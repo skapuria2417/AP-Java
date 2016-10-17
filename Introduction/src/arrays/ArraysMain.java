@@ -4,27 +4,15 @@ public class ArraysMain {
 	public static void main(String[] args) {
 		//This is how you time how quickly a computer processes information;
 		long startTime = System.currentTimeMillis();
-		String[] someStrings = new String[100];
-		populateArray(someStrings);
+		//System.out.println(populateArray(someStrings));
+		passByValueDemonstration();
 		
-		System.out.print("Before "+ someStrings[99]);
-		changeString(someStrings[99]);
-		System.out.print("After "+ someStrings[99]);
-		
-		
-		System.out.print("Before "+ someStrings[99]);
-		changeArray(someStrings);
-		System.out.print("After "+ someStrings[99]);
-		
-		
-		System.out.print("Before "+ someStrings[99]);
-		changeArrayElement(someStrings,99);
-		System.out.print("After "+ someStrings[99]);
+
 	}
-	
+
 	private static void changeArrayElement(String[] someStrings, int i) {
 		someStrings[i] = "new item "+ (i+1);
-		
+
 	}
 
 	private static void changeArray(String[] someStrings){
@@ -37,7 +25,7 @@ public class ArraysMain {
 	private static void changeString(String s){
 		s = "This string has been changed";
 	}
-	
+
 	private static void printArray(String[] str) {
 		for(String a: str){
 			System.out.println(a);
@@ -76,7 +64,7 @@ public class ArraysMain {
 		String[] strings1={"","",""};
 		String[] strings2=new String[3];
 
-		
+
 
 		//SECOND METHOD : FOR EACH
 		//always goes in order, does not keep track of index
@@ -87,5 +75,23 @@ public class ArraysMain {
 		for(String s: strings2){
 			System.out.println(s);
 		}
+	}
+	private static void passByValueDemonstration(){
+		String[] someStrings = new String[100];
+		populateArray(someStrings);
+
+		System.out.print("Before "+ someStrings[99]);
+		changeString(someStrings[99]);
+		System.out.print("After "+ someStrings[99]);
+
+
+		System.out.print("Before "+ someStrings[99]);
+		changeArray(someStrings);
+		System.out.print("After "+ someStrings[99]);
+
+
+		System.out.print("Before "+ someStrings[99]);
+		changeArrayElement(someStrings,99);
+		System.out.print("After "+ someStrings[99]);
 	}
 }
