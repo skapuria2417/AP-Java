@@ -2,7 +2,8 @@ package arrays;
 
 public class Demonstrate {
 	public static void main(String[] args) {
-		fifty();
+		//fifty();
+		randomFifty();
 	}
 
 
@@ -19,6 +20,20 @@ public class Demonstrate {
 		}
 		
 		private static void randomFifty(){
-			
+			int[]randArray = new int [50];
+			for (int i = 0; i < randArray.length; i ++){
+				randArray[i] = (int)(Math.random()*10+1);
+				System.out.println(randArray[i]);
+			}
+		}
+//		
+//		private static void populateDieRollArray(int [] array){
+//			
+//		}
+		
+		private static void printResults(int[] arr){
+			for(int i =0; i<arr.length;i++){
+				System.out.println(x);
+			}
 		}
 	}
