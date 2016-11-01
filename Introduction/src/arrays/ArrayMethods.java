@@ -31,6 +31,51 @@ public class ArrayMethods {
 		}
 		System.out.println(arr[arr.length-1]);
 	}
+	
+	private static int countUnderBound(double[] arr , double d ){
+		int count = 0;
+		for(int i=0;i<arr.length;i++){
+			if(arr[i]<d){
+				count++;
+			}
+		}
+		return count;
+		
+		
+	}
+	
+	
+	
+	
+	public static int[] getSubArray(int [] arr )
+	
+	
+	
+	
+	
+	
+	
+	
+	public static boolean contains(int[] arr, int [] subArrays){
+		for(int i =0; i < arr.length;i++){
+			if(arr[i] == subArrays .length[0]){
+				
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	private static void swap(int[] arr, int i,int j) {
 		int placeholder = arr[j];
@@ -47,6 +92,13 @@ public class ArrayMethods {
 	 * @param j
 	 * @param length
 	 */
+	public static void cycleThrough(int[] array){
+		// [1 2 3 4 5 0]
+	}
+	
+	
+	
+	
 	private static boolean checkHalfway(int[] arr, int searchValue, int begin, int end) {
 		return searchValue < arr[(begin+end+1/2)];
 		                               

@@ -33,7 +33,19 @@ public class Demonstrate {
 		
 		private static void printResults(int[] arr){
 			for(int i =0; i<arr.length;i++){
-				System.out.println(x);
+				System.out.println("f");
 			}
+		}
+		
+		private static void testPrimes(int numberToTest){
+			int lastToCheck = (int)(Math.sqrt(numberToTest));
+		}
+		
+		int [] arr={0,1,2,3,4,5,6,7,8,9};
+		private static  int[] randPopArr(int[] arr){
+			
+			
+			return arr;
+					
 		}
 	}
