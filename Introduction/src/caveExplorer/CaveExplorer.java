@@ -16,6 +16,10 @@ public class CaveExplorer {
 				caves[row][col]=new CaveRoom("This cave has coordinates"+row+","+col);
 			}
 		}
+		currentRoom = caves[0][1];
+		currentRoom.enter();
+		caves[0][1].setConnection(caves[0][2]);
 	}
+	
 	
 }
