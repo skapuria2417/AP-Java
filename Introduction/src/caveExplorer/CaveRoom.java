@@ -108,4 +108,8 @@ public class CaveRoom {
 		description = string;
 	}
 
+	public void interpretinput(String input) {
+		// TODO Auto-generated method stub	
+	}
+
 }

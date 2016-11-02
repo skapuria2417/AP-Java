@@ -23,5 +23,7 @@ public class TwoDArrayIntro {
 		for(String[] row: arr2D){
 			System.out.println(Arrays.toString(row));
 		}
+		
+		
 	}
 }
