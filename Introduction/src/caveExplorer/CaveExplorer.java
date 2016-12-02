@@ -9,6 +9,10 @@ public class CaveExplorer {
 	public static CaveRoom currentRoom;
 	public static Inventory inventory;
 	
+	public CaveExplorer(String description) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public static void main(String[] args){
 		caves = new CaveRoom[5][5];
 		for(int row=0;row<caves.length;row++){
@@ -37,6 +41,17 @@ public class CaveExplorer {
 		}
 		
 	}
+
+	public void enter() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public static void print(String s){
+		System.out.println(s);
+	}
+
+	
 	
 	
 }
