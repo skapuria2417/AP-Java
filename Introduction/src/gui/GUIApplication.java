@@ -1,76 +1,58 @@
 package gui;
 
 import java.awt.Graphics;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 
 public abstract class GUIApplication extends JFrame implements Runnable{
 
+	//FIELDS
 	private Screen currentScreen;
+	
 
-	
-	
-	
-	
-	public GUIApplication() {
-		//terminate program when window is closed
+	public GUIApplication(int width, int height) {
+		super();
+		setBounds(20,20,width, height);
+		//terminates program when window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setUndecorated(false);
-		int x = 40;
-		int y = 40;
-		int width = 600;
-		int height = 400;
-		setBounds(x,y,width,height);
 		initScreen();
 		setVisible(true);
 	}
 
-
-
-/**
- * method for creating and setting the starting screen
- */
-	protected abstract void initScreen();
-
-	
-	public void setScreen(Screen screen){
-		//stop controls from last Screen
-		if(currentScreen != null){
-			if(currentScreen.getMouseListener() != null){
-				removeMouseListener(
-						currentScreen.getMouseListener());
-			}
-			if(currentScreen.getMouseMotionListener() != null){
-				removeMouseMotionListener(
-						currentScreen.getMouseMotionListener());
-			}
-		}
-		currentScreen = screen;
-		//add controls for new screen
-		if(currentScreen != null){
-			addMouseListener(currentScreen.
-					getMouseListener());
-			addMouseMotionListener(currentScreen.
-					getMouseMotionListener());
-		}
-	}
+	public abstract void initScreen();
 	
 	public void paint(Graphics g){
 		g.drawImage(currentScreen.getImage(), 0, 0, null);
 	}
 
-	
-	
-	
+	public void setScreen(Screen s){
+		//stop listening to previous screen
+		if(currentScreen!=null){
+			MouseListener ml= currentScreen.getMouseListener();
+			if(ml != null)removeMouseListener(ml);
+			MouseMotionListener mml = currentScreen.getMouseMotionListener();
+			if(mml!=null)removeMouseMotionListener(mml);
+		}
+		currentScreen = s;
+		//start listening to new screen
+		if(currentScreen != null){
+			addMouseListener(currentScreen.getMouseListener());
+			addMouseMotionListener(
+					currentScreen.getMouseMotionListener());
+		}
+	}
 	
 	
 	public void run(){
 		while(true){
+			//redraws the display
 			currentScreen.update();
-			//updates the Window
+			//update the window
 			repaint();
 			try {
-				Thread.sleep(40);
+				Thread.sleep(30);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -79,5 +61,11 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 	}
 	
 	
-
+	
+	
+	
+	
+	
+	
+	
 }
