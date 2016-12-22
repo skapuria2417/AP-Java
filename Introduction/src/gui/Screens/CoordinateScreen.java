@@ -9,8 +9,7 @@ import gui.Components.Graphic;
 import gui.Components.TextArea;
 import gui.Components.TextLabel;
 import gui.Components.Visible;
-
-
+import gui.SampleGames.MouseFollower;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -43,7 +42,7 @@ implements MouseMotionListener,MouseListener{
 				new Action() {
 
 			public void act() {
-				// TODO Auto-generated method stub
+			MouseFollower.game.setScreen(MouseFollower.myScreen);
 
 			}
 		});
@@ -52,7 +51,7 @@ implements MouseMotionListener,MouseListener{
 				new TextLabel(20, 200, 500, 40, "Some text");
 		viewObjects.add(text);
 		
-		dog = new Graphic(30,30,"resources/sampleImages/dog.png");
+		dog = new Graphic(300,300,"resources/sampleImages/dog.png");
 		viewObjects.add(dog);
 	}
 
@@ -73,7 +72,7 @@ implements MouseMotionListener,MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		button.act();
 		
 	}
 
