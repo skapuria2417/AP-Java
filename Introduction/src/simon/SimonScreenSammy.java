@@ -9,7 +9,7 @@ import gui.Components.Visible;
 public class SimonScreenSammy extends ClickableScreen implements Runnable {
 	
 	private TextLabel textLabel;
-	private ButtonInterfaceSammy button;
+	private ButtonInterfaceSammy[] button;
 	private ProgressInterfaceSammy progress;
 	private ArrayList<MoveInterfaceSammy> move;
 	
@@ -23,7 +23,8 @@ public class SimonScreenSammy extends ClickableScreen implements Runnable {
 
 	public SimonScreenSammy(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		Thread app = new Thread(this);
+		app.start();
 	}
 
 	@Override
@@ -34,6 +35,33 @@ public class SimonScreenSammy extends ClickableScreen implements Runnable {
 
 	@Override
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		addButtons();
+		progress = getProgress();
+		textLabel = new TextLabel(130,230,300,40,"Let's play Simon!");
+		move = new ArrayList<MoveInterfaceSammy>();
+		//add 2 moves to start
+		lastSelectedButton = -1;
+		move.add(randomMove());
+		move.add(randomMove());
+		roundNumber = 0;
+		viewObjects.add(progress);
+		viewObjects.add(textLabel);
+		
+	}
+
+	private MoveInterfaceSammy randomMove() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private ProgressInterfaceSammy getProgress() {
+		/**
+		Placeholder until partner finishes implementation of ProgressInterface
+		*/
+		return null;
+	}
+
+	private void addButtons() {
 		// TODO Auto-generated method stub
 		
 	}

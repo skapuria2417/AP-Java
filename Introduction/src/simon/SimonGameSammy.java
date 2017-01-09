@@ -22,8 +22,8 @@ public class SimonGameSammy extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		SimonGameSammy sGame = new SimonGameSammy(getWidth(),getHeight());
-		setScreen(sGame);
+		SimonScreenSammy sScreen = new SimonScreenSammy(getWidth(),getHeight());
+		setScreen(sScreen);
 		
 	}
 
