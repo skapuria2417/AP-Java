@@ -2,63 +2,37 @@ package gui.Components;
 
 import java.awt.image.BufferedImage;
 
-public class ClickableGraphic implements Clickable {
+public class ClickableGraphic extends Graphic implements Clickable {
 
+	//FIELDS
+	private Action action;
+	
 	public ClickableGraphic(int x, int y, double scale, String imageLocation) {
-	super (x,y, scale, imageLocation);	}
+		super(x, y, scale, imageLocation);
+		// TODO Auto-generated constructor stub
+	}
 
-	@Override
+	public ClickableGraphic(int x, int y, String imageLocation) {
+		super(x, y, imageLocation);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ClickableGraphic(int x, int y, int w, int h, String imageLocation) {
+		super(x, y, w, h, imageLocation);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void setAction(Action a){
+		this.action = a;
+	}
+
 	public boolean isHovered(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
+		return x > getX() && x < getX() + getWidth() &&
+				y > getY() && y < getY()+ getHeight();
 	}
 
-	@Override
 	public void act() {
-		// TODO Auto-generated method stub
-		
+		if(action != null)action.act();
 	}
-
-	@Override
-	public BufferedImage getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean isAnimated() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }

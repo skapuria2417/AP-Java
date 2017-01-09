@@ -31,9 +31,9 @@ public abstract class ClickableScreen extends Screen implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent m) {
-		for(Clickable c: clickables){
-			if(c.isHovered(m.getX(), m.getY())){
-				c.act();
+		for(int i =0; i < clickables.size();i++){
+			if(clickables.get(i).isHovered(m.getX(),m.getY())){
+				clickables.get(i).act();
 				break;
 			}
 		}
@@ -76,5 +76,6 @@ public abstract class ClickableScreen extends Screen implements MouseListener {
 	public MouseListener getMouseListener(){
 		return this;
 	}
+
 	
 }
